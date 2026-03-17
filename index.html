@@ -50,13 +50,6 @@
             margin-bottom: 60px;
         }
 
-        .images-section h2 {
-            color: #16c79a;
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 1.8rem;
-        }
-
         .image-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -64,48 +57,42 @@
             margin-bottom: 20px;
         }
 
-        .image-item {
-            text-align: center;
-        }
-
-        .image-item img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid #bbd4e8;
-            transition: transform 0.3s ease;
-        }
-
-        .image-item img:hover {
-            transform: scale(1.02);
-        }
-
-        .image-item p {
-            color: #555f7e;
-            margin-top: 15px;
-            font-size: 0.95rem;
-        }
-
+        .image-item,
         .image-item-full {
             text-align: center;
         }
 
+        .image-item img,
         .image-item-full img {
-            max-width: 50%;
+            max-width: 100%;
             height: auto;
             border-radius: 8px;
             border: 2px solid #bbd4e8;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, cursor 0.3s ease;
+            cursor: pointer;
         }
 
+        .image-item img:hover,
         .image-item-full img:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
+        .image-item-full img {
+            max-width: 50%;
+        }
+
+        .image-item p,
         .image-item-full p {
             color: #555f7e;
             margin-top: 15px;
             font-size: 0.95rem;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #16c79a;
+            margin: 60px 0 30px;
+            font-size: 1.8rem;
         }
 
         .grid {
@@ -147,6 +134,11 @@
             left: 100%;
         }
 
+        .card:focus-visible {
+            outline: 3px solid #16c79a;
+            outline-offset: 3px;
+        }
+
         .card-content {
             position: relative;
             z-index: 1;
@@ -167,15 +159,155 @@
         .card-link {
             display: inline-block;
             color: #16c79a;
-            text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
             border-bottom: 2px solid transparent;
             transition: border-color 0.3s ease;
         }
 
-        .card-link:hover {
+        .card:hover .card-link {
             border-bottom-color: #16c79a;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #f5faff;
+            border-radius: 12px;
+            width: 90%;
+            height: 85%;
+            max-width: 1200px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #16c79a;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            z-index: 1001;
+        }
+
+        .modal-close:hover {
+            background-color: #12a082;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
+
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-modal.active {
+            display: flex;
+        }
+
+        .image-modal-content {
+            background-color: #f5faff;
+            border-radius: 12px;
+            padding: 20px;
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #16c79a;
+            color: #fff;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            z-index: 1001;
+        }
+
+        .image-modal-close:hover {
+            background-color: #12a082;
+        }
+
+        .image-modal-controls {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1001;
+        }
+
+        .zoom-btn {
+            background-color: #16c79a;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .zoom-btn:hover {
+            background-color: #12a082;
+        }
+
+        .image-modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            transition: transform 0.3s ease;
+            object-fit: contain;
         }
 
         footer {
@@ -204,10 +336,6 @@
                 padding: 20px;
             }
 
-            .images-section h2 {
-                font-size: 1.4rem;
-            }
-
             .image-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
@@ -215,6 +343,17 @@
 
             .image-item-full img {
                 max-width: 100%;
+            }
+
+            .modal-content {
+                width: 95%;
+                height: 90%;
+            }
+
+            .modal-close {
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
             }
         }
 
@@ -229,6 +368,21 @@
 
             .card h3 {
                 font-size: 1.1rem;
+            }
+
+            .modal-content {
+                width: 100%;
+                height: 95%;
+            }
+
+            .image-modal-controls {
+                flex-wrap: wrap;
+                bottom: 10px;
+            }
+
+            .zoom-btn {
+                padding: 8px 12px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -245,44 +399,56 @@
         <div class="images-section">
             <div class="image-grid">
                 <div class="image-item">
-                    <img src="images/yearly_crime_trends.png" alt="Yearly Crime Trends">
+                    <img src="images/yearly_crime_trends.png" alt="Yearly Crime Trends" 
+                         onclick="openImageModal('images/yearly_crime_trends.png', 'Yearly Crime Trends')">
                     <p>Yearly crime trends showing patterns over two decades</p>
                 </div>
                 <div class="image-item">
-                    <img src="images/weekly_pattern.png" alt="Weekly Crime Patterns">
+                    <img src="images/weekly_pattern.png" alt="Weekly Crime Patterns" 
+                         onclick="openImageModal('images/weekly_pattern.png', 'Weekly Crime Patterns')">
                     <p>Weekly patterns revealing which days see the most crime</p>
                 </div>
             </div>
             <div class="image-item-full">
-                <img src="images/crime_correlation.png" alt="Crime Correlation Analysis">
+                <img src="images/crime_correlation.png" alt="Crime Correlation Analysis" 
+                     onclick="openImageModal('images/crime_correlation.png', 'Crime Correlation Analysis')">
                 <p>Correlations between different types of crimes</p>
             </div>
         </div>
 
-        <h2 style="text-align: center; color: #16c79a; margin: 60px 0 30px; font-size: 1.8rem;">Explore Interactive Visualizations</h2>
+        <h2 class="section-title">Explore Interactive Visualizations</h2>
 
         <div class="grid">
-            <div class="card">
+            <div class="card" role="button" tabindex="0"
+                 aria-label="Open Crime Heatmap visualization"
+                 onclick="openModal('visualizations/sf_crime_heatmap.html')"
+                 onkeydown="openCardFromKeyboard(event, 'visualizations/sf_crime_heatmap.html')">
                 <div class="card-content">
                     <h3>Crime Heatmap</h3>
                     <p>Geographic distribution of crimes across San Francisco's neighborhoods.</p>
-                    <a href="visualizations/sf_crime_heatmap.html" class="card-link">Explore →</a>
+                    <span class="card-link">Explore →</span>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" role="button" tabindex="0"
+                 aria-label="Open Temporal Patterns visualization"
+                 onclick="openModal('visualizations/crime_hourly_bar_interactive.html')"
+                 onkeydown="openCardFromKeyboard(event, 'visualizations/crime_hourly_bar_interactive.html')">
                 <div class="card-content">
                     <h3>Temporal Patterns</h3>
                     <p>Weekly and hourly crime trends revealing when crimes are most likely to occur.</p>
-                    <a href="visualizations/crime_hourly_bar_interactive.html" class="card-link">Explore →</a>
+                    <span class="card-link">Explore →</span>
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" role="button" tabindex="0"
+                 aria-label="Open Stolen Vehicles visualization"
+                 onclick="openModal('visualizations/cars_stolen_on_sundays.html')"
+                 onkeydown="openCardFromKeyboard(event, 'visualizations/cars_stolen_on_sundays.html')">
                 <div class="card-content">
                     <h3>Stolen Vehicles</h3>
                     <p>Deep dive into Sunday car theft hotspots across the city.</p>
-                    <a href="visualizations/cars_stolen_on_sundays.html" class="card-link">Explore →</a>
+                    <span class="card-link">Explore →</span>
                 </div>
             </div>
         </div>
@@ -291,5 +457,108 @@
     <footer>
         <p>&copy; 2026 San Francisco Crime Analysis. Data visualization portfolio.</p>
     </footer>
+
+    <!-- Interactive Visualization Modal -->
+    <div id="modal" class="modal" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()" aria-label="Close modal">×</button>
+            <iframe id="modalIframe" title="Interactive visualization"></iframe>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeImageModalOnBackdrop(event)">
+        <div class="image-modal-content" onclick="event.stopPropagation()">
+            <button class="image-modal-close" onclick="closeImageModal()" aria-label="Close image">×</button>
+            <img id="modalImage" class="image-modal-image" src="" alt="">
+            <div class="image-modal-controls">
+                <button class="zoom-btn" onclick="zoomImage(1.2)">+ Zoom In</button>
+                <button class="zoom-btn" onclick="zoomImage(0.8)">- Zoom Out</button>
+                <button class="zoom-btn" onclick="resetZoom()">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentZoom = 1;
+
+        function openModal(url) {
+            const modal = document.getElementById('modal');
+            const iframe = document.getElementById('modalIframe');
+            iframe.src = url;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('modal');
+            const iframe = document.getElementById('modalIframe');
+            modal.classList.remove('active');
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        function openCardFromKeyboard(event, url) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openModal(url);
+            }
+        }
+
+        function closeModalOnBackdrop(event) {
+            if (event.target === event.currentTarget) {
+                closeModal();
+            }
+        }
+
+        function openImageModal(src, alt) {
+            const imageModal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+            modalImage.src = src;
+            modalImage.alt = alt;
+            imageModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            currentZoom = 1;
+            resetZoom();
+        }
+
+        function closeImageModal() {
+            const imageModal = document.getElementById('imageModal');
+            imageModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            currentZoom = 1;
+        }
+
+        function closeImageModalOnBackdrop(event) {
+            if (event.target === event.currentTarget) {
+                closeImageModal();
+            }
+        }
+
+        function zoomImage(factor) {
+            currentZoom *= factor;
+            const modalImage = document.getElementById('modalImage');
+            modalImage.style.transform = `scale(${currentZoom})`;
+        }
+
+        function resetZoom() {
+            currentZoom = 1;
+            const modalImage = document.getElementById('modalImage');
+            modalImage.style.transform = 'scale(1)';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modal = document.getElementById('modal');
+                const imageModal = document.getElementById('imageModal');
+                if (modal.classList.contains('active')) {
+                    closeModal();
+                }
+                if (imageModal.classList.contains('active')) {
+                    closeImageModal();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
