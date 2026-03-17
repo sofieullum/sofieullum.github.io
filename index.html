@@ -46,6 +46,46 @@
             padding: 0 20px;
         }
 
+        .images-section {
+            margin-bottom: 60px;
+        }
+
+        .images-section h2 {
+            color: #16c79a;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .image-row {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .image-item {
+            text-align: center;
+        }
+
+        .image-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #0f3460;
+            transition: transform 0.3s ease;
+        }
+
+        .image-item img:hover {
+            transform: scale(1.02);
+        }
+
+        .image-item p {
+            color: #a0a0a0;
+            margin-top: 15px;
+            font-size: 0.95rem;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -141,6 +181,10 @@
             .card {
                 padding: 20px;
             }
+
+            .images-section h2 {
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -167,6 +211,25 @@
     </header>
 
     <div class="container">
+        <div class="images-section">
+            <div class="image-row">
+                <div class="image-item">
+                    <img src="images/yearly_crime_trends.png" alt="Yearly Crime Trends">
+                    <p>Yearly crime trends showing patterns over two decades</p>
+                </div>
+                <div class="image-item">
+                    <img src="images/weekly_pattern.png" alt="Weekly Crime Patterns">
+                    <p>Weekly patterns revealing which days see the most crime</p>
+                </div>
+                <div class="image-item">
+                    <img src="images/crime_correlation.png" alt="Crime Correlation Analysis">
+                    <p>Correlations between different types of crimes</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; color: #16c79a; margin: 60px 0 30px; font-size: 1.8rem;">Explore Interactive Visualizations</h2>
+
         <div class="grid">
             <div class="card">
                 <div class="card-content">
