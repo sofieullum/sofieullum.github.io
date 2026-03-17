@@ -347,13 +347,23 @@
 
             .modal-content {
                 width: 95%;
-                height: 90%;
+                height: 60%;
+                min-height: 400px;
             }
 
             .modal-close {
                 width: 35px;
                 height: 35px;
                 font-size: 20px;
+            }
+
+            .image-modal-content {
+                max-width: 95vw;
+                max-height: 60vh;
+            }
+
+            .image-modal-image {
+                max-height: 50vh;
             }
         }
 
@@ -371,18 +381,36 @@
             }
 
             .modal-content {
-                width: 100%;
-                height: 95%;
+                width: 98%;
+                height: 55%;
+                min-height: 350px;
+            }
+
+            .image-modal-content {
+                max-width: 98vw;
+                max-height: 55vh;
+                padding: 15px;
+            }
+
+            .image-modal-image {
+                max-height: 45vh;
             }
 
             .image-modal-controls {
                 flex-wrap: wrap;
                 bottom: 10px;
+                gap: 8px;
             }
 
             .zoom-btn {
                 padding: 8px 12px;
                 font-size: 0.9rem;
+            }
+
+            .image-modal-close {
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
             }
         }
     </style>
